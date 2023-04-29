@@ -1,0 +1,41 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .signup{
+            width:70%;
+            height:300px;
+            background-image:url('{% static "images/home1.png" %}');
+            position:relative;
+            left:200px;
+            top:100px;
+            text-align:center;
+        }
+        #stud{
+            position:relative;
+            top:200px;
+            left:-230px;
+        }
+        #teach{
+            position:relative;
+            top:150px;
+            left:210px;
+        }
+        body{
+            background-image:linear-gradient(to right,red,blue);
+        }
+    </style>
+
+</head>
+<body>
+<div class="signup">
+    <h1>SIGNUP</h1>
+    <a href="{% url 'studentlogin' %}" id="stud"><h2>STUDENT</h2></a>
+    <a href="{% url 'teacherlogin' %}" id="teach"><h2>TEACHER</h2></a>
+</div>
+
+</body>
+</html>

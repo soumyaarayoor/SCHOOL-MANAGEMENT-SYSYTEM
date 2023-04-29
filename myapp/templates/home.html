@@ -1,0 +1,58 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+     .footer{
+        width:100%;
+        height:250px;
+        background-image:url('{% static "images/home1.png" %}');
+        position:relative;
+        top:-50px;
+     }
+    .header{
+        width:100%;
+        height:350px;
+        text-align:center;
+        font-size:60px;
+        background-image:url('{% static "images/student.jpg" %}');
+        }
+        .btn1{
+        color:white;
+        background-color:green;
+        width:500px;
+        height:100px;
+        position:relative;
+        left:150px;
+        top:-50px;
+        font-size:20px;
+        }
+        .btn2{
+        color:white;
+        background-color:green;
+        width:250px;
+        height:100px;
+        position:relative;
+        left:550px;
+        top:-50px;
+        font-size:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid header">
+    <h3>SCHOOL MANAGEMENT SYSTEM</h3>
+</div>
+
+<div class="container-fluid">
+     <a href="{% url 'signup' %}"><button class="btn1">TEACHER / STUDENT</button></a>
+    <a href="{% url 'admin_page' %}"><button class="btn2">ADMIN</button></a>
+</div>
+
+<div class="container-fluid fixed footer">
+</div>
+
+</body>
+</html>

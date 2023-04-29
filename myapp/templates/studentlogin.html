@@ -1,0 +1,63 @@
+{% load static %}
+{% block content %}
+<html>
+<head>
+    <style>
+        body{
+            background-image:url('{% static "images/wallpaper.png" %}');
+            background-image:linear-gradient(to right,pink,blue);
+        }
+        .div1{
+            position:relative;
+            left:490px;
+            top:200px;
+        }
+        .btn3{
+            width:100px;
+            height:40px;
+            color:white;
+            background-color:green;
+        }
+        .foot{
+            position:relative;
+            left:480px;
+            top:200px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container div1">
+    <h2 style="position:relative;left:15px;">LOGIN</h2><br>
+    <form class="form-horizontal" method="POST">
+                {% csrf_token %}
+        <div class="form-group">
+            <label class="control-label col-sm-2">Username:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter username" name="username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Password:</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" placeholder="Enter password" name="password">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="{% url 'studenthome' %}"><button class="btn3" onclick="alert('succesd')" type="submit">Submit</button></a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="foot">
+    <h4>ARE YOU A NEW USER??</h4>
+    <a href="{% url 'studentsignup' %}">CREATE NEW ACCOUNT</a>
+</div>
+  {% endblock %}
+</body>
+</html>

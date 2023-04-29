@@ -1,0 +1,153 @@
+{% load static %}
+{% block content %}
+<html>
+  <head>
+    <title>Teacher Home Page</title>
+    <style>
+    body{
+     background-image:url('{% static "images/attendance.jpg" %}');
+    }
+      header {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+select {
+  margin-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td input[type="radio"] {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+#btnlo{
+position:relative;
+left:500px;
+top:100px;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="text-align:center">ATTENDANCE FORM</h1>
+    </header>
+
+      <form >
+        <label for="class">Select Class:</label>
+        <select id="class">
+          <option value="">--Select Class--</option>
+          <option value="math">Math</option>
+          <option value="english">English</option>
+          <option value="science">Science</option>
+        </select>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Attendance Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SOUMYA</td>
+              <td>
+                <input type="radio" name="attendance-1" value="present">Present
+                <input type="radio" name="attendance-1" value="absent">Absent
+                <input type="radio" name="attendance-1" value="late">Late
+              </td>
+            </tr>
+            <tr>
+              <td>ANJU</td>
+              <td>
+                <input type="radio" name="attendance-2" value="present">Present
+                <input type="radio" name="attendance-2" value="absent">Absent
+                <input type="radio" name="attendance-2" value="late">Late
+              </td>
+            </tr>
+          <tr>
+              <td>SHYAMA</td>
+              <td>
+                <input type="radio" name="attendance-3" value="present">Present
+                <input type="radio" name="attendance-3" value="absent">Absent
+                <input type="radio" name="attendance-3" value="late">Late
+              </td>
+            </tr>
+          <tr>
+              <td>ANUSREE</td>
+              <td>
+                <input type="radio" name="attendance-4" value="present">Present
+                <input type="radio" name="attendance-4" value="absent">Absent
+                <input type="radio" name="attendance-4" value="late">Late
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" onclick="location.reload()" >Submit Attendance</button>
+         <a href=" {%url 'logout'%}"> <button type="button" id="btnlo">LOGOUT</button></a>
+
+      </form>
+
+    <script>
+  function submitAttendance() {
+  const classSelect = document.getElementById("class");
+  const className = classSelect.options[classSelect.selectedIndex].value;
+  const attendanceForm = document.forms[0];
+  const attendanceData = new FormData(attendanceForm);
+  const attendance = {};
+  const btn = document.getElementById("btn");
+  attendanceData.forEach((value, key) => attendance[key] = value);
+  attendance["class"] = className;
+
+
+
+}
+
+    </script>
+
+  {% endblock %}
+  </body>
+</html>

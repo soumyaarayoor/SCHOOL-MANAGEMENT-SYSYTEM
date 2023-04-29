@@ -1,0 +1,82 @@
+{% load static %}
+{% block content %}
+<html>
+<head>
+	<title>Leave Application Form</title>
+	<style>
+        .container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+input, textarea {
+	padding: 10px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+}
+
+button[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+button[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+body{
+background-image:url('{% static "images/stud.png" %}');
+
+}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<h1>Leave Application Form</h1>
+		<form>
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="class">Class:</label>
+			<input type="text" id="class" name="class" required>
+
+			<label for="reason">Reason for leave:</label>
+			<textarea id="reason" name="reason" required></textarea>
+
+			<label for="from-date">From:</label>
+			<input type="date" id="from-date" name="from-date" required>
+
+			<label for="to-date">To:</label>
+			<input type="date" id="to-date" name="to-date" required>
+
+			<a href="{% url 'studenthome' %}"><button type="submit" onclick=alert("leave_applied")>Submit</button></a>
+		</form>
+	</div>
+{% endblock %}
+</body>
+</html>
